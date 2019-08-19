@@ -51,7 +51,10 @@ module ZencoderFetcher
             options = {:body => notification.to_json}
           rescue => e
             puts "Unable to build notification."
+	    puts "Error:"
 	    puts e.inspect
+	    puts "Notification:"
+           puts notification.inspect
           end
         end
         options = options.merge({:headers => {"Content-Type" => "application/#{format}"}}) if format
